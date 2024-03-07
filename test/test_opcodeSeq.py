@@ -20,7 +20,7 @@ from . import format_print, timer
 class TestOpcodeSeq(unittest.TestCase):
     @timer
     def test_opcodeseq_features(self):
-        analyzer = OpcodeSeqAnalyzer("/data/e0/AI4Code-Framework/data/apk/raw/hello-world.apk")
+        analyzer = OpcodeSeqAnalyzer("/mnt/9699a7bf-7770-4a52-8da1-494497c49166/git/AI4Code-Framework/data/apk/raw/hello-world.apk")
         # cg = mamadroid_ana.cg
         # for n in cg.nodes: 
         #     print(str(n.class_name).strip('L').split("/")[:-1])

@@ -17,7 +17,7 @@ from . import format_print
 
 class TestAPKAnalysis(unittest.TestCase):
     def setUp(self):
-        test_apk_path = "/data/e0/AI4Code-Framework/data/apk/raw/hello-world.apk"
+        test_apk_path = "/mnt/9699a7bf-7770-4a52-8da1-494497c49166/git/AI4Code-Framework/data/apk/raw/hello-world.apk"
         self.ana_obj = APKAnalyzer(test_apk_path)
 
     def test_call_graph(self):
@@ -33,7 +33,7 @@ class TestAPKAnalysis(unittest.TestCase):
 
     def test_method_tokens(self):
         self.test_mxs(debug=False)
-        b, t = self.ana_obj.get_method_tokens(self.test_mx)
+        b = self.ana_obj.get_method_tokens(self.test_mx)
         format_print(self, "Opcode-only mode")
         for i in range(len(b)):
             print(f"{b[i]}")

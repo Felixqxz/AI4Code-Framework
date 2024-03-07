@@ -19,7 +19,7 @@ from . import format_print, timer
 
 class TestDrebin(unittest.TestCase):
     def test_xml_bytecode_parser(self):
-        ana_obj = HinDroidAnalyzer("/data/e0/AI4Code-Framework/data/apk/raw/hello-world.apk")
+        ana_obj = HinDroidAnalyzer("/mnt/9699a7bf-7770-4a52-8da1-494497c49166/git/AI4Code-Framework/data/apk/raw/hello-world.apk")
         coexist_api_sets, invoke_approaches = ana_obj.analyze_method_APIs()
         format_print(self, f"{ana_obj.filepath}\ncoexist_api_sets of length: {len(coexist_api_sets)}, \ninvoke_approaches of length: {len(invoke_approaches)}")
 
@@ -27,5 +27,5 @@ class TestDrebin(unittest.TestCase):
 
     @timer
     def test_drebin_features(self):
-        features = HinDroidAnalyzer("/data/e0/AI4Code-Framework/data/apk/raw/hello-world.apk").features
+        features = HinDroidAnalyzer("/mnt/9699a7bf-7770-4a52-8da1-494497c49166/git/AI4Code-Framework/data/apk/raw/hello-world.apk").features
         # format_print(self, features)    

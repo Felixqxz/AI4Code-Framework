@@ -17,6 +17,6 @@ from examples.android_malware_detection import GraphDroidAnalyzer
 
 class TestGraphDroid(unittest.TestCase):
     def test_GraphDroid(self):
-        snippet_subgraphs = GraphDroidAnalyzer(apkpath="/data/e0/APKDataset/MyDataset/malware/2015/91EFCE54A379D67A60B08E4DD3F822E98F21392A4C4995D45AABA130ADC077ED.apk").features
+        snippet_subgraphs = GraphDroidAnalyzer(apkpath="/mnt/9699a7bf-7770-4a52-8da1-494497c49166/AndroZoo50k/00A0BC07048FDF0E1669D9940DED6A9A36029DCC76B2E1C6C3D554DC0B5E5AAE.apk").features
         for snippet in snippet_subgraphs:
             print(snippet)

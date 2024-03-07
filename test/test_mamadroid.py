@@ -20,7 +20,7 @@ from . import format_print, timer
 class TestMamadroid(unittest.TestCase):
     @timer
     def test_mamadroid_features(self):
-        mamadroid_ana = MaMaDroidAnalyzer("/data/e0/AI4Code-Framework/data/apk/raw/hello-world.apk")
+        mamadroid_ana = MaMaDroidAnalyzer("/mnt/9699a7bf-7770-4a52-8da1-494497c49166/git/AI4Code-Framework/data/apk/raw/hello-world.apk")
         # cg = mamadroid_ana.cg
         # for n in cg.nodes: 
         #     print(str(n.class_name).strip('L').split("/")[:-1])

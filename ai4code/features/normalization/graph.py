@@ -49,8 +49,8 @@ def get_k_hop_subgraph(whole_graph, center_node, hop, undirected=True):
 
 def convert_graph_data(graph_dict, task="inductive", **kwargs):
     if task == "inductive": # graph classification
-        node_attributes = torch.tensor(graph_dict['node_attributes'])
-        edge_index = torch.tensor(graph_dict['edge_list'], dtype=torch.long)
+        node_attributes = torch.tensor(np.array(graph_dict['node_attributes']))
+        edge_index = torch.tensor(graph_dict['edge_list'], dtype=torch.long).t().contiguous()
 
         label = graph_dict.get("label")
         if label:

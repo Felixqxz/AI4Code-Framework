@@ -16,7 +16,7 @@ from ai4code.features import generate_feature
 from examples.android_malware_detection import GraphDroidAnalyzer, MaMaDroidAnalyzer, OpcodeSeqAnalyzer, DrebinAnalyzer, HinDroidAnalyzer
 
 
-def batch_analysis(analyzers, categories, years, apk_dir="/data/e0/APKDataset/MyDataset"):
+def batch_analysis(analyzers, categories, years, apk_dir="/mnt/9699a7bf-7770-4a52-8da1-494497c49166/git/APKDataset/MyDataset"):
     for c in categories:
         for y in years:
             current_apk_dir = f"{apk_dir}/{c}/{y}/"
@@ -31,7 +31,7 @@ if __name__ == '__main__':
     # analyzer = DrebinAnalyzer
     # category = 'malware'
     # for year in range(2015, 2020):
-    #     apk_dir = f"/data/e0/APKDataset/MyDataset/{category}/{year}/"
+    #     apk_dir = f"/mnt/9699a7bf-7770-4a52-8da1-494497c49166/git/APKDataset/MyDataset/{category}/{year}/"
     #     output_dir = f"processed/{analyzer.__name__}/{category}/{year}"
     #     if not os.path.exists(output_dir):
     #         os.makedirs(output_dir)

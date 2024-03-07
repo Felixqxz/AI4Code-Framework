@@ -149,17 +149,9 @@ class APKAnalyzer(Analyzer):
                 ins_idx += instruction.get_length()
             CFG.add_nodes_from([(block_id, {"opcode": block_opcode, "operands": block_operand})])
 
-            # Block edges type treatment (conditional branchs edge_types)
-            val = edge_types["true_branch"]
-            if len(basic_block.childs) > 1:
-                val = edge_types["false_branch"]
-            elif len(basic_block.childs) == 1:
-                val = edge_types["jump_branch"]
-
             values = None
             # The last instruction is important and still set from the loop
             if instruction.get_op_value() in (0x2b, 0x2c) and len(basic_block.childs) > 1:
-                val = edge_types["default_branch"]
                 values = ["default"]
                 values.extend(basic_block.get_special_ins(ins_idx - instruction.get_length()).get_values())
 
@@ -179,13 +171,13 @@ class APKAnalyzer(Analyzer):
                 elif val == edge_types["default_branch"]:
                     val = edge_types["true_branch"]
 
-            exception_analysis = basic_block.get_exception_analysis()
-            if exception_analysis:
-                for exception_elem in exception_analysis.exceptions:
-                    exception_block = exception_elem[-1]
-                    if exception_block:
-                        exception_id = hashlib.md5(sha256 + exception_block.get_name()).hexdigest()
-                        CFG.add_edges_from([(block_id, child_id, {"type": edge_types["exception_branch"], "note": exception_elem[0]})])
+            # exception_analysis = basic_block.get_exception_analysis()
+            # if exception_analysis:
+            #     for exception_elem in exception_analysis.exceptions:
+            #         exception_block = exception_elem[-1]
+            #         if exception_block:
+            #             exception_id = hashlib.md5(sha256 + exception_block.get_name()).hexdigest()
+            #             CFG.add_edges_from([(block_id, child_id, {"type": edge_types["exception_branch"], "note": exception_elem[0]})])
 
         for link in new_links:
             basic_block = link[0]
